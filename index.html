@@ -573,6 +573,7 @@ body::before {
 
 <script>
 const PASSWORD = "zuzus2026";
+const API_KEY = "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";
 const SYSTEM_PROMPT = `Ești un agent expert în diagnosticarea și repararea vehiculelor comerciale Iveco, motoare FPT, sisteme SCR/DPF/EGR/AdBlue, cutii ZF Astronic, și electronica auto în general. Ai 25 de ani de experiență în reparații la nivel de componentă, BGA rework, și diagnosticare avansată ECU.
 
 Răspunzi ÎNTOTDEAUNA în română. Ești direct, tehnic, și concis — ca un coleg senior de atelier, nu ca un chatbot. Dai răspunsuri practice bazate pe experiența din teren.
@@ -661,7 +662,7 @@ async function runDiagnostic() {
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'anthropic-dangerous-direct-browser-access': 'true' },
+      headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
@@ -760,7 +761,7 @@ async function sendChat() {
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'anthropic-dangerous-direct-browser-access': 'true'},
+      headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
